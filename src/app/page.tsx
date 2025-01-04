@@ -18,9 +18,9 @@ export default function Page() {
       </nav>
       
       {/* Hero Section */}
-      <main className="relative w-full flex justify-center">
+      <main className="relative w-full flex justify-center min-h-screen">
         <div className="w-[60%]">
-          <div className="w-full flex justify-center mb-4">
+          <div className="w-full flex justify-center mb-0">
             <div className="w-full max-w-4xl">
               <h1 className="text-white text-[40px] leading-none font-bold tracking-tight text-center" 
                   style={{ 
@@ -38,13 +38,13 @@ export default function Page() {
           </div>
 
           {/* Burger Image with Glow */}
-          <div className="relative w-full max-w-3xl mx-auto -mt-4">
+          <div className="relative w-full max-w-xl mx-auto -mt-20">
             <div className="absolute inset-0 bg-[#1a4c1c] opacity-50 blur-3xl rounded-full transform -translate-y-1/4"></div>
             <Image
               src="/burguer-hero.png"
               alt="Delicious Hamburger"
-              width={800}
-              height={800}
+              width={600}
+              height={225}
               className="relative w-full h-auto object-contain"
               priority
             />
