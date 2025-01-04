@@ -19,8 +19,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={bowlbyOneSC.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={bowlbyOneSC.className} suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   );
 }
