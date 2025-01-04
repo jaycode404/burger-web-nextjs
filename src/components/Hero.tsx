@@ -21,7 +21,7 @@ export default function Hero() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/burguer-hero.png"
+            src="/burger.png"
             alt="Delicious burger"
             fill
             className="object-contain object-center"
