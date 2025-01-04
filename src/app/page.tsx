@@ -18,8 +18,8 @@ export default function Page() {
       {/* Hero Section */}
       <main className="relative max-w-7xl mx-auto px-6">
         <div className="w-full flex justify-center mb-8">
-          <div className="w-1/2">
-            <h1 className="text-white text-[40px] leading-none font-bold tracking-tight whitespace-nowrap text-center" 
+          <div className="w-full max-w-4xl">
+            <h1 className="text-white text-[40px] leading-none font-bold tracking-tight text-center" 
                 style={{ 
                   textShadow: `
                     -2px -2px 0 #000,  
