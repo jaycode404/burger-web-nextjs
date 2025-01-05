@@ -15,7 +15,10 @@ module.exports = {
           'purple': '#9D8DF1',    // The contact button color
           'white': '#FFFFFF',     // White text
         }
-      }
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
     },
   },
   plugins: [],

@@ -1,25 +1,34 @@
+'use client'
+
+import { motion } from "framer-motion"
 import Image from 'next/image'
 
 export default function Hero() {
+  const textVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    })
+  }
+
+  const words = ["LA", "MEJOR", "HAMBURGUESA", "DEL", "CONDADO"]
+
   return (
     <section className="relative min-h-screen flex flex-col bg-brand-dark">
-      {/* Navigation */}
-      <nav className="w-full py-6 px-8 flex justify-between items-center z-30">
-        <div className="flex gap-20">
-          <a href="#menu" className="text-white text-2xl font-bold hover:text-brand-lime">MENÚ</a>
-          <a href="#ubicacion" className="text-white text-2xl font-bold hover:text-brand-lime">UBICACIÓN</a>
-          <a href="#nosotros" className="text-white text-2xl font-bold hover:text-brand-lime">NOSOTROS</a>
-          <a href="#contacto" className="text-white text-2xl font-bold hover:text-brand-lime">CONTACTO</a>
-        </div>
-        <button className="bg-[#FF6B00] text-white px-8 py-3 rounded-xl text-2xl font-bold">
-          ORDENAR
-        </button>
-      </nav>
-
-      {/* Hero Content */}
       <div className="flex-1 relative">
-        {/* Background Image */}
-        <div className="absolute inset-0">
+        {/* Background Image with Animation */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="absolute inset-0"
+        >
           <Image
             src="/burger.png"
             alt="Delicious burger"
@@ -27,27 +36,39 @@ export default function Hero() {
             className="object-contain object-center"
             priority
           />
-        </div>
+        </motion.div>
 
-        {/* Text Overlay */}
+        {/* Animated Text */}
         <div className="relative z-20 pt-20">
-          <h1 className="text-white text-[130px] leading-tight font-black tracking-tighter text-center" 
-              style={{ 
-                textShadow: `
-                  -1px -1px 0 #000,  
-                  1px -1px 0 #000,
-                  -1px 1px 0 #000,
-                  1px 1px 0 #000,
-                  4px 4px 0 #000
-                `
-              }}>
-            LA MEJOR<br />
-            HAMBURGUESA<br />
-            DEL<br />
-            CONDADO
-          </h1>
+          <div className="text-center">
+            {words.map((word, i) => (
+              <motion.div
+                key={word}
+                custom={i}
+                initial="hidden"
+                animate="visible"
+                variants={textVariants}
+                className="inline-block"
+              >
+                <h1 
+                  className="text-white text-[130px] leading-tight font-black tracking-tighter"
+                  style={{ 
+                    textShadow: `
+                      -1px -1px 0 #000,  
+                      1px -1px 0 #000,
+                      -1px 1px 0 #000,
+                      1px 1px 0 #000,
+                      4px 4px 0 #000
+                    `
+                  }}
+                >
+                  {word}{' '}
+                </h1>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   )
-} 
+}

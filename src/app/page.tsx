@@ -39,13 +39,13 @@ export default function Page() {
 
           {/* Burger Image with Glow */}
           <div className="relative w-full max-w-xl mx-auto -mt-20">
-            <div className="absolute inset-0 bg-[#FFB800] opacity-40 blur-3xl rounded-full transform -translate-y-1/4"></div>
+            <div className="absolute inset-0 bg-gradient-radial from-[#FFE600] via-[#FFE600]/30 to-transparent opacity-60 blur-[100px] rounded-full transform scale-150"></div>
             <Image
               src="/burger.png"
               alt="Delicious Hamburger"
               width={600}
               height={225}
-              className="relative w-full h-auto object-contain"
+              className="relative w-full h-auto object-contain drop-shadow-2xl"
               priority
             />
           </div>
