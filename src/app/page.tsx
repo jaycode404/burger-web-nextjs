@@ -104,7 +104,7 @@ export default function Page() {
                           6px 6px 0 rgba(0,0,0,0.4)
                         `
                       }}>
-                    EN UNA DELICIOSA
+                    EN UNA <span className="text-yellow-500">DELICIOSA</span>
                   </h1>
                   <h1 className="text-yellow-500 text-[52px] leading-[1.1] font-black tracking-tight whitespace-nowrap"
                       style={{ 
@@ -124,9 +124,11 @@ export default function Page() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5 }}
-                  className="text-gray-300 text-base mb-8 max-w-md leading-relaxed"
+                  className="text-gray-300 text-base mb-8 max-w-xl leading-relaxed"
                 >
-                  Nuestra hamburguesa artesanal está preparada con los mejores ingredientes y con todo nuestro amor.
+                  Nuestra hamburguesa artesanal está preparada<br/>
+                  con los mejores ingredientes<br/>
+                  y con todo nuestro amor.
                   <span className="block mt-2 text-yellow-500 font-semibold">¡Cada bocado es una experiencia única!</span>
                 </motion.p>
                 <motion.div
