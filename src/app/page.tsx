@@ -30,7 +30,7 @@ export default function Page() {
         transition={{ duration: 0.5 }}
         className="w-full flex justify-center fixed top-0 z-50 bg-black/80 backdrop-blur-sm"
       >
-        <div className="w-[90%] max-w-7xl py-4 flex justify-between items-center">
+        <div className="w-[90%] max-w-7xl py-4 flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0">
           <motion.span 
             whileHover={{ scale: 1.1 }}
             className="text-white text-xl font-bold cursor-pointer"
@@ -43,7 +43,7 @@ export default function Page() {
               whileHover={{ scale: 1.1 }}
               href="#nosotros"
               onClick={(e) => handleScroll(e, 'nosotros')}
-              className="text-white hover:text-gray-300 cursor-pointer"
+              className="text-white hover:text-gray-300 cursor-pointer text-sm md:text-base"
             >
               Nosotros
             </motion.a>
@@ -51,7 +51,7 @@ export default function Page() {
               whileHover={{ scale: 1.1 }}
               href="#platillos"
               onClick={(e) => handleScroll(e, 'platillos')}
-              className="text-white hover:text-gray-300 cursor-pointer"
+              className="text-white hover:text-gray-300 cursor-pointer text-sm md:text-base"
             >
               Platillos
             </motion.a>
@@ -60,27 +60,27 @@ export default function Page() {
       </motion.nav>
       
       {/* Hero Section */}
-      <section id="hero" className="relative w-full flex justify-center min-h-screen">
+      <section id="hero" className="relative w-full flex justify-center min-h-screen pt-[72px] md:pt-0">
         <div className="w-[90%] max-w-7xl relative">
-          <div className="flex items-center justify-between h-screen">
+          <div className="flex flex-col-reverse md:flex-row items-center justify-between min-h-[calc(100vh-72px)] md:h-screen">
             {/* Text Content */}
             <motion.div 
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="w-full max-w-xl pt-8"
+              className="w-full md:max-w-xl pb-12 md:pb-0 pt-6 md:pt-8 text-center md:text-left"
             >
-              <div className="text-left">
+              <div>
                 <motion.span
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="inline-block text-yellow-500 font-bold text-sm mb-2 tracking-wide"
+                  className="inline-block text-yellow-500 font-bold text-xs md:text-sm mb-2 tracking-wide"
                 >
                   DESCUBRE EL SABOR
                 </motion.span>
-                <div className="mb-4 max-w-3xl">
-                  <h1 className="text-white text-[52px] leading-[1.1] font-black tracking-tight whitespace-nowrap" 
+                <div className="mb-4 max-w-3xl px-4 md:px-0">
+                  <h1 className="text-white text-[28px] md:text-[52px] leading-[1.1] font-black tracking-tight md:whitespace-nowrap" 
                       style={{ 
                         textShadow: `
                           -2px -2px 0 #000,  
@@ -93,7 +93,7 @@ export default function Page() {
                       }}>
                     CONVIERTE TUS ANTOJOS
                   </h1>
-                  <h1 className="text-white text-[52px] leading-[1.1] font-black tracking-tight whitespace-nowrap" 
+                  <h1 className="text-white text-[28px] md:text-[52px] leading-[1.1] font-black tracking-tight md:whitespace-nowrap" 
                       style={{ 
                         textShadow: `
                           -2px -2px 0 #000,  
@@ -106,7 +106,7 @@ export default function Page() {
                       }}>
                     EN UNA <span className="text-yellow-500">DELICIOSA</span>
                   </h1>
-                  <h1 className="text-yellow-500 text-[52px] leading-[1.1] font-black tracking-tight whitespace-nowrap"
+                  <h1 className="text-yellow-500 text-[28px] md:text-[52px] leading-[1.1] font-black tracking-tight md:whitespace-nowrap"
                       style={{ 
                         textShadow: `
                           -2px -2px 0 #000,  
@@ -124,10 +124,10 @@ export default function Page() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5 }}
-                  className="text-gray-300 text-base mb-8 max-w-xl leading-relaxed"
+                  className="text-gray-300 text-sm md:text-base mb-6 md:mb-8 max-w-xl leading-relaxed px-6 md:px-0"
                 >
-                  Nuestra hamburguesa artesanal está preparada<br/>
-                  con los mejores ingredientes<br/>
+                  Nuestra hamburguesa artesanal está preparada<br className="hidden md:block"/>
+                  con los mejores ingredientes<br className="hidden md:block"/>
                   y con todo nuestro amor.
                   <span className="block mt-2 text-yellow-500 font-semibold">¡Cada bocado es una experiencia única!</span>
                 </motion.p>
@@ -135,7 +135,7 @@ export default function Page() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.7 }}
-                  className="flex gap-4"
+                  className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start px-6 md:px-0"
                 >
                   <div className="relative inline-block">
                     {/* Smoke particles container */}
@@ -217,7 +217,7 @@ export default function Page() {
                 type: "spring",
                 stiffness: 100
               }}
-              className="absolute top-[15%] -translate-y-1/2 right-0 w-[45%] max-w-2xl pt-8"
+              className="relative md:absolute md:top-[15%] md:-translate-y-1/2 md:right-0 w-[85%] md:w-[45%] max-w-2xl pt-20 md:pt-8 -mt-6 md:mt-0"
             >
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-radial from-[#FFE600] via-[#FFE600]/30 to-transparent opacity-60 blur-[100px] rounded-full transform scale-150"></div>
@@ -244,8 +244,8 @@ export default function Page() {
           transition={{ duration: 0.8 }}
           className="w-[90%] max-w-7xl"
         >
-          <h2 className="text-white text-3xl font-bold text-center mb-12">Lo Que Dicen Nuestros Clientes</h2>
-          <div className="grid grid-cols-3 gap-8 items-start">
+          <h2 className="text-white text-2xl md:text-3xl font-bold text-center mb-12">Lo Que Dicen Nuestros Clientes</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
             {[
               {
                 name: "María García",
@@ -331,7 +331,7 @@ export default function Page() {
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className="text-white text-3xl font-bold text-center mb-12"
+            className="text-white text-2xl md:text-3xl font-bold text-center mb-12"
           >
             La Diferencia
           </motion.h2>
@@ -339,7 +339,7 @@ export default function Page() {
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className="flex gap-8 justify-center items-start"
+            className="flex flex-col md:flex-row gap-8 justify-center items-center md:items-start"
           >
             <div className="bg-zinc-900/50 p-6 rounded-lg w-[300px] backdrop-blur-sm">
               <h3 className="text-gray-400 text-xl font-bold mb-6">Hamburguesas Tradicionales</h3>
@@ -409,7 +409,7 @@ export default function Page() {
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className="text-white text-4xl font-bold text-center mb-4"
+            className="text-white text-3xl md:text-4xl font-bold text-center mb-4"
           >
             ¿Cómo lo hacemos?
           </motion.h2>
@@ -417,7 +417,7 @@ export default function Page() {
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className="text-gray-400 text-center mb-16 text-lg"
+            className="text-gray-400 text-center mb-16 text-base md:text-lg px-4 md:px-0"
           >
             Nuestro proceso para crear la hamburguesa perfecta
           </motion.p>
@@ -425,7 +425,7 @@ export default function Page() {
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className="grid grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8"
           >
             {[
               {
@@ -494,7 +494,7 @@ export default function Page() {
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className="text-white text-4xl font-bold text-center mb-4"
+            className="text-white text-3xl md:text-4xl font-bold text-center mb-4"
           >
             Nuestras Hamburguesas
           </motion.h2>
@@ -502,7 +502,7 @@ export default function Page() {
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className="text-gray-400 text-center mb-16 text-lg"
+            className="text-gray-400 text-center mb-16 text-base md:text-lg px-4 md:px-0"
           >
             Preparadas con ingredientes frescos y con todo nuestro amor
           </motion.p>
@@ -510,7 +510,7 @@ export default function Page() {
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className="grid grid-cols-3 gap-12"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12"
           >
             {[
               { 

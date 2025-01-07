@@ -34,7 +34,7 @@ const SmokeParticle = ({ delay = 0, position = 0 }) => {
 
 export default function CTA() {
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-12 md:py-20 relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 to-black"></div>
       
@@ -44,7 +44,7 @@ export default function CTA() {
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold text-white mb-6"
+          className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6"
         >
           ¿Listo para probar la mejor hamburguesa?
         </motion.h2>
@@ -54,7 +54,7 @@ export default function CTA() {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto"
+          className="text-base md:text-xl text-gray-400 mb-8 md:mb-12 max-w-2xl mx-auto px-4 md:px-0"
         >
           No esperes más para disfrutar de una experiencia gastronómica única.
           ¡Haz tu pedido ahora y déjanos sorprenderte!
@@ -87,13 +87,13 @@ export default function CTA() {
                 boxShadow: "0 0 30px rgba(234, 179, 8, 0.6)"
               }}
               whileTap={{ scale: 0.95 }}
-              className="relative bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-500 text-black px-12 py-6 rounded-xl font-bold text-xl shadow-lg shadow-yellow-500/50 hover:shadow-yellow-500/80 transition-all duration-300 group"
+              className="relative bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-500 text-black px-8 md:px-12 py-4 md:py-6 rounded-xl font-bold text-lg md:text-xl shadow-lg shadow-yellow-500/50 hover:shadow-yellow-500/80 transition-all duration-300 group"
             >
               <span className="relative z-10 inline-flex items-center">
                 Ordenar Ahora
                 <motion.svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 ml-2"
+                  className="h-5 w-5 md:h-6 md:w-6 ml-2"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

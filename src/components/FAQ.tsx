@@ -36,7 +36,7 @@ export default function FAQ() {
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
-          className="text-4xl font-bold text-center mb-12 text-white"
+          className="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-white"
         >
           Preguntas Frecuentes
         </motion.h2>
@@ -51,14 +51,14 @@ export default function FAQ() {
               className="border border-yellow-500/20 rounded-lg overflow-hidden bg-black/50 backdrop-blur-sm"
             >
               <button
-                className="w-full text-left p-6 focus:outline-none flex justify-between items-center"
+                className="w-full text-left p-4 md:p-6 focus:outline-none flex justify-between items-center"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
-                <span className="font-semibold text-white">{faq.question}</span>
+                <span className="font-semibold text-white text-sm md:text-base">{faq.question}</span>
                 <motion.span
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
-                  className="text-yellow-500"
+                  className="text-yellow-500 ml-2 flex-shrink-0"
                 >
                   ▼
                 </motion.span>
@@ -72,7 +72,7 @@ export default function FAQ() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="p-6 pt-0 text-gray-400">
+                    <div className="p-4 md:p-6 pt-0 text-gray-400 text-sm md:text-base">
                       {faq.answer}
                     </div>
                   </motion.div>
