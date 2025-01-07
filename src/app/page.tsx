@@ -137,28 +137,65 @@ export default function Page() {
                   transition={{ delay: 0.7 }}
                   className="flex gap-4"
                 >
-                  <motion.button
-                    whileHover={{ 
-                      scale: 1.05,
-                      boxShadow: "0 20px 30px -10px rgba(234, 179, 8, 0.4)"
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500 text-black px-8 py-3 rounded-xl font-bold text-base shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 transition-all duration-300 relative overflow-hidden group"
-                  >
-                    <span className="relative z-10 inline-flex items-center">
-                      Ordenar Ahora
-                      <motion.svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </motion.svg>
-                    </span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </motion.button>
+                  <div className="relative inline-block">
+                    {/* Smoke particles container */}
+                    <div className="absolute -inset-x-10 -top-40 h-40 flex items-end justify-center overflow-hidden">
+                      {[...Array(10)].map((_, i) => (
+                        <motion.div
+                          key={i}
+                          initial={{ scale: 0, opacity: 0 }}
+                          animate={{
+                            scale: [0.3, 2, 3],
+                            opacity: [0, 0.4, 0],
+                            y: [0, -100],
+                            x: [(i * 20 - 80), (i * 20 - 80) + (Math.random() > 0.5 ? 20 : -20)],
+                            rotate: [0, Math.random() > 0.5 ? 90 : -90]
+                          }}
+                          transition={{
+                            duration: 3,
+                            delay: i * 0.2,
+                            repeat: Infinity,
+                            repeatDelay: Math.random() * 0.2,
+                            ease: "easeOut"
+                          }}
+                          className="absolute bottom-0 w-8 h-8 rounded-full blur-xl"
+                          style={{
+                            background: 'radial-gradient(circle at center, rgba(253, 224, 71, 0.3), rgba(253, 224, 71, 0.2), transparent)',
+                            filter: 'blur(8px)'
+                          }}
+                        />
+                      ))}
+                    </div>
+
+                    {/* Button glow effect */}
+                    <div className="absolute -inset-1 bg-yellow-500 rounded-xl opacity-60 group-hover:opacity-80 blur-lg transition duration-200"></div>
+                    <div className="absolute -inset-1 bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-500 rounded-xl opacity-40 group-hover:opacity-70 blur-xl transition duration-200 animate-pulse"></div>
+
+                    {/* Button */}
+                    <motion.button
+                      whileHover={{ 
+                        scale: 1.05,
+                        boxShadow: "0 20px 30px -10px rgba(234, 179, 8, 0.4)"
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                      className="relative bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500 text-black px-8 py-3 rounded-xl font-bold text-base shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 transition-all duration-300 group"
+                    >
+                      <span className="relative z-10 inline-flex items-center">
+                        Ordenar Ahora
+                        <motion.svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </motion.svg>
+                      </span>
+                      <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </motion.button>
+                  </div>
+
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
