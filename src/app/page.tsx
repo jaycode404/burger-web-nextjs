@@ -324,7 +324,7 @@ export default function Page() {
                 price: '$99', 
                 description: 'Nuestra hamburguesa tradicional con un toque especial que te hará volver por más',
                 features: ['Carne 150g', 'Queso Cheddar', 'Lechuga Fresca', 'Tomate', 'Salsa Especial'],
-                image: '/burger-classic.png',
+                image: '/burger.png',
                 popular: false
               },
               { 
@@ -332,7 +332,7 @@ export default function Page() {
                 price: '$129', 
                 description: 'Doble carne jugosa con bacon crujiente y nuestra salsa secreta',
                 features: ['Doble Carne 300g', 'Doble Queso', 'Bacon Crujiente', 'Cebolla Caramelizada', 'Salsa Secreta'],
-                image: '/burger-special.png',
+                image: '/burger.png',
                 popular: true
               },
               { 
@@ -340,7 +340,7 @@ export default function Page() {
                 price: '$159', 
                 description: 'Una experiencia gourmet con ingredientes premium y nuestra salsa de trufa',
                 features: ['Triple Carne 450g', 'Queso Gouda', 'Champiñones Salteados', 'Cebolla Crujiente', 'Salsa Trufa'],
-                image: '/burger-supreme.png',
+                image: '/burger.png',
                 popular: false
               }
             ].map((item) => (
