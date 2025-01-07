@@ -230,24 +230,65 @@ export default function Page() {
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className="flex gap-8 justify-center"
+            className="flex gap-8 justify-center items-start"
           >
-            <div className="bg-zinc-900 p-6 rounded-lg">
-              <h3 className="text-white text-xl font-bold mb-4">Hamburguesas Tradicionales</h3>
-              <ul className="text-gray-400 space-y-2">
-                <li>• Carne congelada</li>
-                <li>• Ingredientes procesados</li>
-                <li>• Sabor artificial</li>
+            <div className="bg-zinc-900/50 p-6 rounded-lg w-[300px] backdrop-blur-sm">
+              <h3 className="text-gray-400 text-xl font-bold mb-6">Hamburguesas Tradicionales</h3>
+              <ul className="text-gray-500 space-y-4">
+                <li className="flex items-center gap-2">
+                  <span className="text-red-500">✕</span>
+                  Carne congelada
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-red-500">✕</span>
+                  Ingredientes procesados
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-red-500">✕</span>
+                  Sabor artificial
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-red-500">✕</span>
+                  Preparación industrial
+                </li>
               </ul>
             </div>
-            <div className="bg-zinc-900 p-6 rounded-lg border-2 border-yellow-500">
-              <h3 className="text-white text-xl font-bold mb-4">Nuestras Hamburguesas</h3>
-              <ul className="text-gray-400 space-y-2">
-                <li>• Carne fresca diaria</li>
-                <li>• Ingredientes naturales</li>
-                <li>• Sabor auténtico</li>
-              </ul>
-            </div>
+            <motion.div 
+              whileHover={{ y: -5 }}
+              className="bg-gradient-to-b from-yellow-500/20 via-yellow-500/10 to-transparent p-8 rounded-xl w-[300px] border-2 border-yellow-500 shadow-2xl shadow-yellow-500/20 relative -mt-4"
+            >
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-500 text-black px-4 py-1 rounded-full text-sm font-bold z-20 whitespace-nowrap">
+                RECOMENDADO
+              </div>
+              <div className="relative z-10 mt-2">
+                <h3 className="text-yellow-400 text-2xl font-bold mb-6">Nuestras Hamburguesas</h3>
+                <ul className="text-gray-300 space-y-4">
+                  <li className="flex items-center gap-2">
+                    <span className="text-yellow-500 text-xl">✓</span>
+                    Carne fresca diaria
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-yellow-500 text-xl">✓</span>
+                    Ingredientes naturales
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-yellow-500 text-xl">✓</span>
+                    Sabor auténtico
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-yellow-500 text-xl">✓</span>
+                    Preparación artesanal
+                  </li>
+                </ul>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full bg-yellow-500 text-black font-bold py-3 px-6 rounded-lg mt-6 shadow-lg shadow-yellow-500/20"
+                >
+                  Probar Ahora
+                </motion.button>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
