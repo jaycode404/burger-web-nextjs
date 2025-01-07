@@ -1,46 +1,84 @@
 'use client'
 
 import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const faqs = [
     {
-      question: "What are your opening hours?",
-      answer: "We're open Monday to Sunday, 11:00 AM to 10:00 PM."
+      question: "¿Cuáles son sus horarios de atención?",
+      answer: "Estamos abiertos de Lunes a Domingo, de 11:00 AM a 10:00 PM."
     },
     {
-      question: "Do you offer vegetarian options?",
-      answer: "Yes, we have several vegetarian burger options available."
+      question: "¿Tienen opciones vegetarianas?",
+      answer: "¡Sí! Contamos con deliciosas hamburguesas vegetarianas elaboradas con ingredientes frescos y naturales."
     },
     {
-      question: "Do you deliver?",
-      answer: "Yes, we offer delivery through our website and major delivery platforms."
+      question: "¿Hacen entregas a domicilio?",
+      answer: "Sí, realizamos entregas a través de nuestra página web y las principales plataformas de delivery."
+    },
+    {
+      question: "¿Cuál es el tiempo promedio de espera?",
+      answer: "Nuestras hamburguesas se preparan al momento. El tiempo promedio es de 15-20 minutos en restaurante y 30-40 minutos para delivery."
+    },
+    {
+      question: "¿Tienen opciones sin gluten?",
+      answer: "Sí, ofrecemos panes sin gluten para todas nuestras hamburguesas. Por favor, infórmanos de cualquier alergia o restricción dietética."
     }
   ];
 
   return (
-    <section className="py-20">
+    <section className="py-20 bg-zinc-900">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center mb-12">
-          Frequently Asked Questions
-        </h2>
+        <motion.h2 
+          initial={{ y: 20, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-4xl font-bold text-center mb-12 text-white"
+        >
+          Preguntas Frecuentes
+        </motion.h2>
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="border rounded-lg">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              key={index} 
+              className="border border-yellow-500/20 rounded-lg overflow-hidden bg-black/50 backdrop-blur-sm"
+            >
               <button
-                className="w-full text-left p-4 focus:outline-none"
+                className="w-full text-left p-6 focus:outline-none flex justify-between items-center"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
-                <div className="font-semibold">{faq.question}</div>
+                <span className="font-semibold text-white">{faq.question}</span>
+                <motion.span
+                  animate={{ rotate: openIndex === index ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-yellow-500"
+                >
+                  ▼
+                </motion.span>
               </button>
-              {openIndex === index && (
-                <div className="p-4 pt-0 text-gray-600">
-                  {faq.answer}
-                </div>
-              )}
-            </div>
+              <AnimatePresence>
+                {openIndex === index && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="p-6 pt-0 text-gray-400">
+                      {faq.answer}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
           ))}
         </div>
       </div>

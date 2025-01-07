@@ -2,6 +2,8 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import FAQ from '@/components/FAQ'
+import CTA from '@/components/CTA'
 
 export default function Page() {
   return (
@@ -34,13 +36,6 @@ export default function Page() {
               className="text-white hover:text-gray-300"
             >
               Platillos
-            </motion.a>
-            <motion.a 
-              whileHover={{ scale: 1.1 }}
-              href="#contacto" 
-              className="text-white hover:text-gray-300"
-            >
-              Contacto
             </motion.a>
           </div>
         </div>
@@ -378,7 +373,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Menu Section */}
+      {/* Menu/Pricing Section */}
       <section id="platillos" className="w-full flex justify-center py-20 bg-zinc-900">
         <div className="w-[80%]">
           <motion.h2 
@@ -484,46 +479,11 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contacto" className="w-full flex justify-center py-20">
-        <div className="w-[60%]">
-          <motion.h2 
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-white text-3xl font-bold text-center mb-12"
-          >
-            Contáctanos
-          </motion.h2>
-          <motion.div 
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            className="bg-zinc-900 p-8 rounded-lg"
-          >
-            <form className="space-y-4">
-              <div>
-                <label className="text-white block mb-2">Nombre</label>
-                <input type="text" className="w-full p-2 rounded-lg bg-black text-white" />
-              </div>
-              <div>
-                <label className="text-white block mb-2">Email</label>
-                <input type="email" className="w-full p-2 rounded-lg bg-black text-white" />
-              </div>
-              <div>
-                <label className="text-white block mb-2">Mensaje</label>
-                <textarea className="w-full p-2 rounded-lg bg-black text-white h-32"></textarea>
-              </div>
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                className="bg-yellow-500 text-black font-bold py-2 px-4 rounded-lg w-full"
-              >
-                Enviar Mensaje
-              </motion.button>
-            </form>
-          </motion.div>
-        </div>
-      </section>
+      {/* FAQ Section */}
+      <FAQ />
+
+      {/* CTA Section */}
+      <CTA />
 
       {/* Footer */}
       <footer className="w-full flex justify-center py-8 bg-zinc-900">
