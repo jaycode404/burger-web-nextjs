@@ -293,6 +293,91 @@ export default function Page() {
         </div>
       </section>
 
+      {/* How it works Section */}
+      <section className="w-full flex justify-center py-20 bg-black">
+        <div className="w-[80%]">
+          <motion.h2 
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-white text-4xl font-bold text-center mb-4"
+          >
+            ¿Cómo lo hacemos?
+          </motion.h2>
+          <motion.p
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-gray-400 text-center mb-16 text-lg"
+          >
+            Nuestro proceso para crear la hamburguesa perfecta
+          </motion.p>
+          <motion.div 
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-3 gap-8"
+          >
+            {[
+              {
+                step: '1',
+                title: 'Selección de Ingredientes',
+                description: 'Seleccionamos carne premium, vegetales frescos, quesos artesanales y panes recién horneados cada mañana.',
+                icon: '🥬🥬'
+              },
+              {
+                step: '2',
+                title: 'Preparación Artesanal',
+                description: 'Preparamos cada hamburguesa al momento, siguiendo nuestra receta secreta.',
+                icon: '👨‍🍳'
+              },
+              {
+                step: '3',
+                title: 'Entrega Rápida',
+                description: 'Llevamos tu hamburguesa directamente a tu puerta, caliente y lista para disfrutar.',
+                icon: '🛵'
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 }}
+                className="relative flex flex-col items-center text-center"
+              >
+                <div className="w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center mb-6 relative">
+                  {item.step === '1' ? (
+                    <div className="relative flex items-center justify-center">
+                      <span className="text-2xl absolute -right-2">🥬</span>
+                      <span className="text-3xl relative z-10">🥩</span>
+                    </div>
+                  ) : item.step === '2' ? (
+                    <span className="text-3xl">👨‍🍳</span>
+                  ) : (
+                    <span className="text-3xl">🛵</span>
+                  )}
+                  <div className="absolute -right-2 -top-2 w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center text-black font-bold">
+                    {item.step}
+                  </div>
+                </div>
+                <h3 className="text-white text-xl font-bold mb-3">{item.title}</h3>
+                <p className="text-gray-400">{item.description}</p>
+                {index < 2 && (
+                  <motion.div 
+                    initial={{ width: 0 }}
+                    whileInView={{ width: '100%' }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5, duration: 0.8 }}
+                    className="absolute top-8 left-[60%] w-full h-[2px] bg-gradient-to-r from-yellow-500/50 to-transparent"
+                  />
+                )}
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       {/* Menu Section */}
       <section id="platillos" className="w-full flex justify-center py-20 bg-zinc-900">
         <div className="w-[80%]">
