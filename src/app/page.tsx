@@ -53,10 +53,10 @@ export default function Page() {
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full flex justify-center mb-0 pt-32"
+            className="w-full flex flex-col items-center mb-0 pt-32"
           >
-            <div className="w-full max-w-4xl">
-              <h1 className="text-white text-[64px] leading-tight font-bold tracking-tight text-center mb-4" 
+            <div className="w-full max-w-4xl text-center">
+              <h1 className="text-white text-[56px] leading-tight font-bold tracking-tight text-center mb-4" 
                   style={{ 
                     textShadow: `
                       -2px -2px 0 #000,  
@@ -72,7 +72,7 @@ export default function Page() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="text-gray-300 text-xl text-center mb-8 max-w-2xl mx-auto"
+                className="text-gray-300 text-xl mb-8 max-w-2xl mx-auto"
               >
                 Sabores auténticos, ingredientes frescos y la mejor carne de la región.
                 ¡Una experiencia única en cada bocado!
@@ -80,20 +80,20 @@ export default function Page() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
-                className="flex justify-center gap-4"
+                transition={{ delay: 0.7 }}
+                className="flex gap-4 justify-center"
               >
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-yellow-500 text-black px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-yellow-500/20 hover:shadow-yellow-500/40 transition-shadow"
+                  className="bg-yellow-500 text-black px-8 py-4 rounded-lg font-bold text-lg shadow-lg shadow-yellow-500/20 hover:shadow-yellow-500/40 transition-shadow"
                 >
                   Ordenar Ahora
                 </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-zinc-800 text-white px-8 py-4 rounded-xl font-bold text-lg border border-zinc-700 hover:bg-zinc-700 transition-colors"
+                  className="bg-transparent text-white border-2 border-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/10 transition-colors"
                 >
                   Ver Menú
                 </motion.button>
@@ -111,7 +111,7 @@ export default function Page() {
               type: "spring",
               stiffness: 100
             }}
-            className="relative w-full max-w-xl mx-auto -mt-20"
+            className="relative w-full max-w-xl mx-auto -mt-8"
           >
             <div className="absolute inset-0 bg-gradient-radial from-[#FFE600] via-[#FFE600]/30 to-transparent opacity-60 blur-[100px] rounded-full transform scale-150"></div>
             <Image
