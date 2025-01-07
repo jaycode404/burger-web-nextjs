@@ -180,15 +180,15 @@ export default function Page() {
                 type: "spring",
                 stiffness: 100
               }}
-              className="absolute top-1/2 -translate-y-1/2 right-0 w-[40%] max-w-xl pt-8"
+              className="absolute top-[15%] -translate-y-1/2 right-0 w-[45%] max-w-2xl pt-8"
             >
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-radial from-[#FFE600] via-[#FFE600]/30 to-transparent opacity-60 blur-[100px] rounded-full transform scale-150"></div>
                 <Image
                   src="/burger.png"
                   alt="Delicious Hamburger"
-                  width={600}
-                  height={600}
+                  width={800}
+                  height={800}
                   className="relative w-full h-auto object-contain drop-shadow-2xl transform -rotate-12 hover:rotate-0 transition-transform duration-500"
                   priority
                 />
