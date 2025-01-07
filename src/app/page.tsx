@@ -1,11 +1,26 @@
 'use client'
 
+import React from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import FAQ from '@/components/FAQ'
 import CTA from '@/components/CTA'
 
 export default function Page() {
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault()
+    const target = document.getElementById(targetId)
+    const navHeight = 80 // Height of your fixed navbar
+    
+    if (target) {
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      })
+    }
+  }
+
   return (
     <div className="min-h-screen bg-black">
       {/* Navigation */}
@@ -18,22 +33,25 @@ export default function Page() {
         <div className="w-[60%] py-4 flex justify-between items-center">
           <motion.span 
             whileHover={{ scale: 1.1 }}
-            className="text-white text-xl font-bold"
+            className="text-white text-xl font-bold cursor-pointer"
+            onClick={(e) => handleScroll(e as any, 'hero')}
           >
             Logo
           </motion.span>
           <div className="flex gap-8">
             <motion.a 
               whileHover={{ scale: 1.1 }}
-              href="#nosotros" 
-              className="text-white hover:text-gray-300"
+              href="#nosotros"
+              onClick={(e) => handleScroll(e, 'nosotros')}
+              className="text-white hover:text-gray-300 cursor-pointer"
             >
               Nosotros
             </motion.a>
             <motion.a 
               whileHover={{ scale: 1.1 }}
-              href="#platillos" 
-              className="text-white hover:text-gray-300"
+              href="#platillos"
+              onClick={(e) => handleScroll(e, 'platillos')}
+              className="text-white hover:text-gray-300 cursor-pointer"
             >
               Platillos
             </motion.a>
@@ -42,7 +60,7 @@ export default function Page() {
       </motion.nav>
       
       {/* Hero Section */}
-      <section className="relative w-full flex justify-center min-h-screen">
+      <section id="hero" className="relative w-full flex justify-center min-h-screen">
         <div className="w-[60%]">
           <motion.div 
             initial={{ y: 50, opacity: 0 }}
