@@ -22,7 +22,7 @@ export default function Page() {
   }
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black overflow-x-hidden">
       {/* Navigation */}
       <motion.nav 
         initial={{ y: -100, opacity: 0 }}
@@ -30,7 +30,7 @@ export default function Page() {
         transition={{ duration: 0.5 }}
         className="w-full flex justify-center fixed top-0 z-50 bg-black/80 backdrop-blur-sm"
       >
-        <div className="w-[60%] py-4 flex justify-between items-center">
+        <div className="w-[90%] max-w-7xl py-4 flex justify-between items-center">
           <motion.span 
             whileHover={{ scale: 1.1 }}
             className="text-white text-xl font-bold cursor-pointer"
@@ -61,7 +61,7 @@ export default function Page() {
       
       {/* Hero Section */}
       <section id="hero" className="relative w-full flex justify-center min-h-screen">
-        <div className="w-[90%] relative">
+        <div className="w-[90%] max-w-7xl relative">
           <div className="flex items-center justify-between h-screen">
             {/* Text Content */}
             <motion.div 
@@ -77,31 +77,57 @@ export default function Page() {
                   transition={{ delay: 0.3 }}
                   className="inline-block text-yellow-500 font-bold text-sm mb-2 tracking-wide"
                 >
-                  LA HAMBURGUESA QUE CAMBIÓ EL JUEGO
+                  DESCUBRE EL SABOR
                 </motion.span>
-                <h1 className="text-white text-[52px] leading-[1.1] font-black tracking-tight mb-4" 
-                    style={{ 
-                      textShadow: `
-                        -2px -2px 0 #000,  
-                        2px -2px 0 #000,
-                        -2px 2px 0 #000,
-                        2px 2px 0 #000,
-                        4px 4px 0 #000,
-                        6px 6px 0 rgba(0,0,0,0.4)
-                      `
-                    }}>
-                  LA MEJOR <br/>
-                  <span className="text-yellow-500">HAMBURGUESA</span><br/>
-                  DEL CONDADO
-                </h1>
+                <div className="mb-4 max-w-3xl">
+                  <h1 className="text-white text-[52px] leading-[1.1] font-black tracking-tight whitespace-nowrap" 
+                      style={{ 
+                        textShadow: `
+                          -2px -2px 0 #000,  
+                          2px -2px 0 #000,
+                          -2px 2px 0 #000,
+                          2px 2px 0 #000,
+                          4px 4px 0 #000,
+                          6px 6px 0 rgba(0,0,0,0.4)
+                        `
+                      }}>
+                    CONVIERTE TUS ANTOJOS
+                  </h1>
+                  <h1 className="text-white text-[52px] leading-[1.1] font-black tracking-tight whitespace-nowrap" 
+                      style={{ 
+                        textShadow: `
+                          -2px -2px 0 #000,  
+                          2px -2px 0 #000,
+                          -2px 2px 0 #000,
+                          2px 2px 0 #000,
+                          4px 4px 0 #000,
+                          6px 6px 0 rgba(0,0,0,0.4)
+                        `
+                      }}>
+                    EN UNA DELICIOSA
+                  </h1>
+                  <h1 className="text-yellow-500 text-[52px] leading-[1.1] font-black tracking-tight whitespace-nowrap"
+                      style={{ 
+                        textShadow: `
+                          -2px -2px 0 #000,  
+                          2px -2px 0 #000,
+                          -2px 2px 0 #000,
+                          2px 2px 0 #000,
+                          4px 4px 0 #000,
+                          6px 6px 0 rgba(0,0,0,0.4)
+                        `
+                      }}>
+                    SATISFACCIÓN
+                  </h1>
+                </div>
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5 }}
-                  className="text-gray-300 text-base mb-8 max-w-lg leading-relaxed"
+                  className="text-gray-300 text-base mb-8 max-w-md leading-relaxed"
                 >
-                  Sabores auténticos, ingredientes frescos y la mejor carne de la región.
-                  <span className="block mt-2 text-yellow-500 font-semibold">¡Una experiencia única en cada bocado!</span>
+                  Nuestra hamburguesa artesanal está preparada con los mejores ingredientes y con todo nuestro amor.
+                  <span className="block mt-2 text-yellow-500 font-semibold">¡Cada bocado es una experiencia única!</span>
                 </motion.p>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -177,7 +203,7 @@ export default function Page() {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="w-[80%]"
+          className="w-[90%] max-w-7xl"
         >
           <h2 className="text-white text-3xl font-bold text-center mb-12">Lo Que Dicen Nuestros Clientes</h2>
           <div className="grid grid-cols-3 gap-8 items-start">
@@ -261,7 +287,7 @@ export default function Page() {
 
       {/* Comparison Section */}
       <section id="nosotros" className="w-full flex justify-center py-20">
-        <div className="w-[60%]">
+        <div className="w-[90%] max-w-7xl">
           <motion.h2 
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -339,7 +365,7 @@ export default function Page() {
 
       {/* How it works Section */}
       <section className="w-full flex justify-center py-20 bg-black">
-        <div className="w-[80%]">
+        <div className="w-[90%] max-w-7xl">
           <motion.h2 
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -424,7 +450,7 @@ export default function Page() {
 
       {/* Menu/Pricing Section */}
       <section id="platillos" className="w-full flex justify-center py-20 bg-zinc-900">
-        <div className="w-[80%]">
+        <div className="w-[90%] max-w-7xl">
           <motion.h2 
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -536,7 +562,7 @@ export default function Page() {
 
       {/* Footer */}
       <footer className="w-full flex justify-center py-8 bg-zinc-900">
-        <div className="w-[60%] text-center">
+        <div className="w-[90%] max-w-7xl text-center">
           <p className="text-gray-400">© 2024 La Mejor Hamburguesa. Todos los derechos reservados.</p>
         </div>
       </footer>
