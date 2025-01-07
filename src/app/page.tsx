@@ -61,81 +61,112 @@ export default function Page() {
       
       {/* Hero Section */}
       <section id="hero" className="relative w-full flex justify-center min-h-screen">
-        <div className="w-[60%]">
-          <motion.div 
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full flex flex-col items-center mb-0 pt-32"
-          >
-            <div className="w-full max-w-4xl text-center">
-              <h1 className="text-white text-[56px] leading-tight font-bold tracking-tight text-center mb-4" 
-                  style={{ 
-                    textShadow: `
-                      -2px -2px 0 #000,  
-                      2px -2px 0 #000,
-                      -2px 2px 0 #000,
-                      2px 2px 0 #000,
-                      4px 4px 0 #000
-                    `
-                  }}>
-                LA MEJOR HAMBURGUESA DEL CONDADO
-              </h1>
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className="text-gray-300 text-xl mb-8 max-w-2xl mx-auto"
-              >
-                Sabores auténticos, ingredientes frescos y la mejor carne de la región.
-                ¡Una experiencia única en cada bocado!
-              </motion.p>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 }}
-                className="flex gap-4 justify-center"
-              >
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-yellow-500 text-black px-8 py-4 rounded-lg font-bold text-lg shadow-lg shadow-yellow-500/20 hover:shadow-yellow-500/40 transition-shadow"
+        <div className="w-[90%] relative">
+          <div className="flex items-center justify-between h-screen">
+            {/* Text Content */}
+            <motion.div 
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="w-full max-w-xl pt-8"
+            >
+              <div className="text-left">
+                <motion.span
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="inline-block text-yellow-500 font-bold text-sm mb-2 tracking-wide"
                 >
-                  Ordenar Ahora
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-transparent text-white border-2 border-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/10 transition-colors"
+                  LA HAMBURGUESA QUE CAMBIÓ EL JUEGO
+                </motion.span>
+                <h1 className="text-white text-[52px] leading-[1.1] font-black tracking-tight mb-4" 
+                    style={{ 
+                      textShadow: `
+                        -2px -2px 0 #000,  
+                        2px -2px 0 #000,
+                        -2px 2px 0 #000,
+                        2px 2px 0 #000,
+                        4px 4px 0 #000,
+                        6px 6px 0 rgba(0,0,0,0.4)
+                      `
+                    }}>
+                  LA MEJOR <br/>
+                  <span className="text-yellow-500">HAMBURGUESA</span><br/>
+                  DEL CONDADO
+                </h1>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                  className="text-gray-300 text-base mb-8 max-w-lg leading-relaxed"
                 >
-                  Ver Menú
-                </motion.button>
-              </motion.div>
-            </div>
-          </motion.div>
+                  Sabores auténticos, ingredientes frescos y la mejor carne de la región.
+                  <span className="block mt-2 text-yellow-500 font-semibold">¡Una experiencia única en cada bocado!</span>
+                </motion.p>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.7 }}
+                  className="flex gap-4"
+                >
+                  <motion.button
+                    whileHover={{ 
+                      scale: 1.05,
+                      boxShadow: "0 20px 30px -10px rgba(234, 179, 8, 0.4)"
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500 text-black px-8 py-3 rounded-xl font-bold text-base shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 transition-all duration-300 relative overflow-hidden group"
+                  >
+                    <span className="relative z-10 inline-flex items-center">
+                      Ordenar Ahora
+                      <motion.svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </motion.svg>
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-transparent text-white border-2 border-white/30 px-6 py-3 rounded-xl font-bold text-base hover:bg-white/10 transition-colors"
+                  >
+                    Ver Menú
+                  </motion.button>
+                </motion.div>
+              </div>
+            </motion.div>
 
-          {/* Burger Image with Glow */}
-          <motion.div 
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ 
-              duration: 0.8, 
-              delay: 0.5,
-              type: "spring",
-              stiffness: 100
-            }}
-            className="relative w-full max-w-xl mx-auto -mt-8"
-          >
-            <div className="absolute inset-0 bg-gradient-radial from-[#FFE600] via-[#FFE600]/30 to-transparent opacity-60 blur-[100px] rounded-full transform scale-150"></div>
-            <Image
-              src="/burger.png"
-              alt="Delicious Hamburger"
-              width={600}
-              height={225}
-              className="relative w-full h-auto object-contain drop-shadow-2xl"
-              priority
-            />
-          </motion.div>
+            {/* Burger Image with Glow */}
+            <motion.div 
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ 
+                duration: 0.8, 
+                delay: 0.5,
+                type: "spring",
+                stiffness: 100
+              }}
+              className="absolute top-1/2 -translate-y-1/2 right-0 w-[40%] max-w-xl pt-8"
+            >
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-radial from-[#FFE600] via-[#FFE600]/30 to-transparent opacity-60 blur-[100px] rounded-full transform scale-150"></div>
+                <Image
+                  src="/burger.png"
+                  alt="Delicious Hamburger"
+                  width={600}
+                  height={600}
+                  className="relative w-full h-auto object-contain drop-shadow-2xl transform -rotate-12 hover:rotate-0 transition-transform duration-500"
+                  priority
+                />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
