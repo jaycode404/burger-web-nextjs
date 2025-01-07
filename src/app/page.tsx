@@ -295,37 +295,105 @@ export default function Page() {
 
       {/* Menu Section */}
       <section id="platillos" className="w-full flex justify-center py-20 bg-zinc-900">
-        <div className="w-[60%]">
+        <div className="w-[80%]">
           <motion.h2 
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className="text-white text-3xl font-bold text-center mb-12"
+            className="text-white text-4xl font-bold text-center mb-4"
           >
-            Nuestro Menú
+            Nuestras Hamburguesas
           </motion.h2>
+          <motion.p
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-gray-400 text-center mb-16 text-lg"
+          >
+            Preparadas con ingredientes frescos y con todo nuestro amor
+          </motion.p>
           <motion.div 
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className="grid grid-cols-3 gap-8"
+            className="grid grid-cols-3 gap-12"
           >
             {[
-              { name: 'Clásica', price: '$99', description: 'La hamburguesa tradicional con nuestro toque especial' },
-              { name: 'Especial', price: '$129', description: 'Doble carne, doble queso, bacon crujiente' },
-              { name: 'Suprema', price: '$159', description: 'Triple carne, queso premium, ingredientes selectos' }
+              { 
+                name: 'La Clásica', 
+                price: '$99', 
+                description: 'Nuestra hamburguesa tradicional con un toque especial que te hará volver por más',
+                features: ['Carne 150g', 'Queso Cheddar', 'Lechuga Fresca', 'Tomate', 'Salsa Especial'],
+                image: '/burger-classic.png',
+                popular: false
+              },
+              { 
+                name: 'La Especial', 
+                price: '$129', 
+                description: 'Doble carne jugosa con bacon crujiente y nuestra salsa secreta',
+                features: ['Doble Carne 300g', 'Doble Queso', 'Bacon Crujiente', 'Cebolla Caramelizada', 'Salsa Secreta'],
+                image: '/burger-special.png',
+                popular: true
+              },
+              { 
+                name: 'La Suprema', 
+                price: '$159', 
+                description: 'Una experiencia gourmet con ingredientes premium y nuestra salsa de trufa',
+                features: ['Triple Carne 450g', 'Queso Gouda', 'Champiñones Salteados', 'Cebolla Crujiente', 'Salsa Trufa'],
+                image: '/burger-supreme.png',
+                popular: false
+              }
             ].map((item) => (
-              <div key={item.name} className="bg-black p-6 rounded-lg">
-                <h3 className="text-white text-xl font-bold mb-2">{item.name}</h3>
-                <p className="text-yellow-500 text-2xl font-bold mb-2">{item.price}</p>
-                <p className="text-gray-400">{item.description}</p>
-                <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  className="mt-4 bg-yellow-500 text-black font-bold py-2 px-4 rounded-lg w-full"
-                >
-                  Ordenar Ahora
-                </motion.button>
-              </div>
+              <motion.div
+                key={item.name}
+                whileHover={{ y: -10 }}
+                className={`relative ${
+                  item.popular 
+                    ? 'bg-gradient-to-b from-yellow-500/20 via-yellow-500/10 to-transparent border-2 border-yellow-500 shadow-2xl shadow-yellow-500/20' 
+                    : 'bg-black/50 border border-gray-800'
+                } rounded-2xl overflow-hidden`}
+              >
+                {item.popular && (
+                  <div className="absolute top-4 right-4 bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-bold z-20">
+                    FAVORITA
+                  </div>
+                )}
+                <div className="relative h-28 overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    fill
+                    className="object-cover hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                  <div className="absolute bottom-3 left-3 right-3 flex justify-between items-end">
+                    <h3 className="text-white text-lg font-bold">{item.name}</h3>
+                    <p className="text-yellow-500 text-lg font-bold">{item.price}</p>
+                  </div>
+                </div>
+                <div className="p-3">
+                  <p className="text-gray-400 text-xs mb-2">{item.description}</p>
+                  <div className="space-y-0.5">
+                    {item.features.map((feature, index) => (
+                      <div key={index} className="flex items-center gap-1.5">
+                        <span className="text-yellow-500 text-[10px]">•</span>
+                        <span className="text-gray-300 text-[10px]">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`w-full font-bold py-1.5 px-3 rounded-lg mt-3 text-sm ${
+                      item.popular 
+                        ? 'bg-yellow-500 text-black shadow-lg shadow-yellow-500/20' 
+                        : 'bg-white/10 text-white hover:bg-white/20'
+                    }`}
+                  >
+                    Ordenar Ahora
+                  </motion.button>
+                </div>
+              </motion.div>
             ))}
           </motion.div>
         </div>
