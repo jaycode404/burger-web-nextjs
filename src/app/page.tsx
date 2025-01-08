@@ -68,7 +68,7 @@ export default function Page() {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="w-full md:max-w-xl pb-8 md:pb-0 pt-4 md:pt-8 text-center md:text-left"
+              className="w-full md:w-1/2 lg:max-w-xl pb-8 md:pb-0 pt-4 md:pt-8 text-center md:text-left"
             >
               <div>
                 <motion.span
@@ -80,7 +80,7 @@ export default function Page() {
                   DESCUBRE EL SABOR
                 </motion.span>
                 <div className="mb-4 max-w-3xl px-4 md:px-0">
-                  <h1 className="text-white text-[28px] md:text-[52px] leading-[1.1] font-black tracking-tight md:whitespace-nowrap" 
+                  <h1 className="text-white text-[28px] md:text-[36px] lg:text-[52px] leading-[1.1] font-black tracking-tight md:whitespace-nowrap" 
                       style={{ 
                         textShadow: `
                           -2px -2px 0 #000,  
@@ -93,7 +93,7 @@ export default function Page() {
                       }}>
                     CONVIERTE TUS ANTOJOS
                   </h1>
-                  <h1 className="text-white text-[28px] md:text-[52px] leading-[1.1] font-black tracking-tight md:whitespace-nowrap" 
+                  <h1 className="text-white text-[28px] md:text-[36px] lg:text-[52px] leading-[1.1] font-black tracking-tight md:whitespace-nowrap" 
                       style={{ 
                         textShadow: `
                           -2px -2px 0 #000,  
@@ -106,7 +106,7 @@ export default function Page() {
                       }}>
                     EN UNA <span className="text-yellow-500">DELICIOSA</span>
                   </h1>
-                  <h1 className="text-yellow-500 text-[28px] md:text-[52px] leading-[1.1] font-black tracking-tight md:whitespace-nowrap"
+                  <h1 className="text-yellow-500 text-[28px] md:text-[36px] lg:text-[52px] leading-[1.1] font-black tracking-tight md:whitespace-nowrap"
                       style={{ 
                         textShadow: `
                           -2px -2px 0 #000,  
@@ -126,8 +126,8 @@ export default function Page() {
                   transition={{ delay: 0.5 }}
                   className="text-gray-300 text-sm md:text-base mb-6 md:mb-8 max-w-xl leading-relaxed px-6 md:px-0"
                 >
-                  Nuestra hamburguesa artesanal está preparada<br className="hidden md:block"/>
-                  con los mejores ingredientes<br className="hidden md:block"/>
+                  Nuestra hamburguesa artesanal está preparada<br className="hidden lg:block"/>
+                  con los mejores ingredientes<br className="hidden lg:block"/>
                   y con todo nuestro amor.
                   <span className="block mt-2 text-yellow-500 font-semibold">¡Cada bocado es una experiencia única!</span>
                 </motion.p>
@@ -213,10 +213,10 @@ export default function Page() {
                 type: "spring",
                 stiffness: 100
               }}
-              className="relative md:absolute md:top-[15%] md:-translate-y-1/2 md:right-0 w-[85%] md:w-[45%] max-w-2xl pt-24 md:pt-8"
+              className="relative md:relative lg:absolute md:w-1/2 lg:w-[45%] max-w-xl md:max-w-sm lg:max-w-2xl pt-24 md:pt-0"
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-radial from-[#FFE600] via-[#FFE600]/30 to-transparent opacity-60 blur-[50px] md:blur-[100px] rounded-full transform scale-100 md:scale-150"></div>
+                <div className="absolute inset-0 bg-gradient-radial from-[#FFE600] via-[#FFE600]/30 to-transparent opacity-60 blur-[50px] md:blur-[60px] lg:blur-[100px] rounded-full transform scale-100 md:scale-110 lg:scale-150"></div>
                 <Image
                   src="/burger.png"
                   alt="Delicious Hamburger"
