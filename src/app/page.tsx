@@ -470,11 +470,20 @@ export default function Page() {
                 <p className="text-gray-400">{item.description}</p>
                 {index < 2 && (
                   <motion.div 
+                    initial={{ height: 0 }}
+                    whileInView={{ height: '100%' }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5, duration: 0.8 }}
+                    className="absolute md:hidden h-24 w-[2px] bottom-0 left-1/2 -translate-x-1/2 translate-y-full bg-gradient-to-b from-yellow-500/50 to-transparent"
+                  />
+                )}
+                {index < 2 && (
+                  <motion.div 
                     initial={{ width: 0 }}
                     whileInView={{ width: '100%' }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.5, duration: 0.8 }}
-                    className="absolute top-8 left-[60%] w-full h-[2px] bg-gradient-to-r from-yellow-500/50 to-transparent"
+                    className="absolute hidden md:block top-8 left-[60%] w-full h-[2px] bg-gradient-to-r from-yellow-500/50 to-transparent"
                   />
                 )}
               </motion.div>
