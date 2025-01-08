@@ -60,15 +60,15 @@ export default function Page() {
       </motion.nav>
       
       {/* Hero Section */}
-      <section id="hero" className="relative w-full flex justify-center min-h-screen pt-[72px] md:pt-0">
-        <div className="w-[90%] max-w-7xl relative">
-          <div className="flex flex-col-reverse md:flex-row items-center justify-between min-h-[calc(100vh-72px)] md:h-screen">
+      <section id="hero" className="relative w-full flex justify-center min-h-screen">
+        <div className="w-[90%] max-w-7xl relative h-full pt-24 md:pt-[80px]">
+          <div className="flex flex-col-reverse md:flex-row items-center justify-between h-[calc(100vh-96px)] md:h-[calc(100vh-80px)]">
             {/* Text Content */}
             <motion.div 
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="w-full md:max-w-xl pb-12 md:pb-0 pt-6 md:pt-8 text-center md:text-left"
+              className="w-full md:max-w-xl pb-8 md:pb-0 pt-4 md:pt-8 text-center md:text-left"
             >
               <div>
                 <motion.span
@@ -167,10 +167,6 @@ export default function Page() {
                       ))}
                     </div>
 
-                    {/* Button glow effect */}
-                    <div className="absolute -inset-1 bg-yellow-500 rounded-xl opacity-60 group-hover:opacity-80 blur-lg transition duration-200"></div>
-                    <div className="absolute -inset-1 bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-500 rounded-xl opacity-40 group-hover:opacity-70 blur-xl transition duration-200 animate-pulse"></div>
-
                     {/* Button */}
                     <motion.button
                       whileHover={{ 
@@ -217,10 +213,10 @@ export default function Page() {
                 type: "spring",
                 stiffness: 100
               }}
-              className="relative md:absolute md:top-[15%] md:-translate-y-1/2 md:right-0 w-[85%] md:w-[45%] max-w-2xl pt-20 md:pt-8 -mt-6 md:mt-0"
+              className="relative md:absolute md:top-[15%] md:-translate-y-1/2 md:right-0 w-[85%] md:w-[45%] max-w-2xl pt-24 md:pt-8"
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-radial from-[#FFE600] via-[#FFE600]/30 to-transparent opacity-60 blur-[100px] rounded-full transform scale-150"></div>
+                <div className="absolute inset-0 bg-gradient-radial from-[#FFE600] via-[#FFE600]/30 to-transparent opacity-60 blur-[50px] md:blur-[100px] rounded-full transform scale-100 md:scale-150"></div>
                 <Image
                   src="/burger.png"
                   alt="Delicious Hamburger"
