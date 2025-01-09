@@ -499,7 +499,7 @@ export default function Page() {
                 features: ['Carne 150g', 'Queso Cheddar', 'Lechuga Fresca', 'Tomate', 'Salsa Especial'],
                 image: '/burger.png',
                 popular: false,
-                order: 'md:translate-x-[10%] lg:translate-x-0'
+                order: 'md:translate-x-[15%] lg:translate-x-0'
               },
               { 
                 name: 'La Especial', 
@@ -508,7 +508,7 @@ export default function Page() {
                 features: ['Doble Carne 300g', 'Doble Queso', 'Bacon Crujiente', 'Cebolla Caramelizada', 'Salsa Secreta'],
                 image: '/burger.png',
                 popular: true,
-                order: 'md:z-10 md:scale-105 lg:transform-none'
+                order: 'md:z-10 md:scale-110 lg:transform-none'
               },
               { 
                 name: 'La Suprema', 
@@ -517,7 +517,7 @@ export default function Page() {
                 features: ['Triple Carne 450g', 'Queso Gouda', 'Champiñones Salteados', 'Cebolla Crujiente', 'Salsa Trufa'],
                 image: '/burger.png',
                 popular: false,
-                order: 'md:-translate-x-[10%] lg:translate-x-0'
+                order: 'md:-translate-x-[15%] lg:translate-x-0'
               }
             ].map((item) => (
               <motion.div
