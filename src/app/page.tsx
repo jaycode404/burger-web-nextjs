@@ -467,7 +467,7 @@ export default function Page() {
       </section>
 
       {/* Menu/Pricing Section */}
-      <section id="platillos" className="w-full flex justify-center py-20 bg-zinc-900">
+      <section id="platillos" className="relative w-full flex justify-center py-20 bg-zinc-900">
         <div className="w-[90%] max-w-7xl">
           <motion.h2 
             initial={{ y: 30, opacity: 0 }}
@@ -489,7 +489,7 @@ export default function Page() {
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12"
+            className="flex flex-col md:flex-row lg:grid lg:grid-cols-3 gap-8 md:gap-0 lg:gap-8 justify-center items-center"
           >
             {[
               { 
@@ -498,7 +498,8 @@ export default function Page() {
                 description: 'Nuestra hamburguesa tradicional con un toque especial que te hará volver por más',
                 features: ['Carne 150g', 'Queso Cheddar', 'Lechuga Fresca', 'Tomate', 'Salsa Especial'],
                 image: '/burger.png',
-                popular: false
+                popular: false,
+                order: 'md:translate-x-[10%] lg:translate-x-0'
               },
               { 
                 name: 'La Especial', 
@@ -506,7 +507,8 @@ export default function Page() {
                 description: 'Doble carne jugosa con bacon crujiente y nuestra salsa secreta',
                 features: ['Doble Carne 300g', 'Doble Queso', 'Bacon Crujiente', 'Cebolla Caramelizada', 'Salsa Secreta'],
                 image: '/burger.png',
-                popular: true
+                popular: true,
+                order: 'md:z-10 md:scale-105 lg:transform-none'
               },
               { 
                 name: 'La Suprema', 
@@ -514,22 +516,26 @@ export default function Page() {
                 description: 'Una experiencia gourmet con ingredientes premium y nuestra salsa de trufa',
                 features: ['Triple Carne 450g', 'Queso Gouda', 'Champiñones Salteados', 'Cebolla Crujiente', 'Salsa Trufa'],
                 image: '/burger.png',
-                popular: false
+                popular: false,
+                order: 'md:-translate-x-[10%] lg:translate-x-0'
               }
             ].map((item) => (
               <motion.div
                 key={item.name}
                 whileHover={{ y: -10 }}
-                className={`relative ${
+                className={`relative w-full md:w-[280px] lg:w-full ${item.order} ${
                   item.popular 
-                    ? 'bg-gradient-to-b from-yellow-500/20 via-yellow-500/10 to-transparent border-2 border-yellow-500 shadow-2xl shadow-yellow-500/20' 
-                    : 'bg-black/50 border border-gray-800'
+                    ? 'bg-[#1a1a1a] border-2 border-yellow-500 shadow-2xl shadow-yellow-500/20' 
+                    : 'bg-[#1a1a1a] border border-gray-800'
                 } rounded-2xl overflow-hidden`}
               >
                 {item.popular && (
-                  <div className="absolute top-4 right-4 bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-bold z-20">
-                    FAVORITA
-                  </div>
+                  <>
+                    <div className="absolute inset-0 bg-gradient-to-b from-yellow-500/20 via-yellow-500/5 to-[#1a1a1a] pointer-events-none"></div>
+                    <div className="absolute top-4 right-4 bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-bold z-20">
+                      FAVORITA
+                    </div>
+                  </>
                 )}
                 <div className="relative h-28 overflow-hidden">
                   <Image
@@ -538,13 +544,13 @@ export default function Page() {
                     fill
                     className="object-cover hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] to-transparent"></div>
                   <div className="absolute bottom-3 left-3 right-3 flex justify-between items-end">
                     <h3 className="text-white text-lg font-bold">{item.name}</h3>
                     <p className="text-yellow-500 text-lg font-bold">{item.price}</p>
                   </div>
                 </div>
-                <div className="p-3">
+                <div className="relative p-3 z-10">
                   <p className="text-gray-400 text-xs mb-2">{item.description}</p>
                   <div className="space-y-0.5">
                     {item.features.map((feature, index) => (
