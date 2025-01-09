@@ -75,12 +75,12 @@ export default function Page() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="inline-block text-yellow-500 font-bold text-xs md:text-base lg:text-sm mb-2 tracking-wide"
+                  className="inline-block text-yellow-500 font-bold text-[10px] md:text-base lg:text-sm mb-2 tracking-wide"
                 >
                   DESCUBRE EL SABOR
                 </motion.span>
-                <div className="mb-4 max-w-3xl px-4 md:px-0">
-                  <h1 className="text-white text-[28px] md:text-[42px] lg:text-[52px] leading-[1.1] font-black tracking-tight md:whitespace-nowrap" 
+                <div className="mb-4 max-w-3xl px-0 md:px-0">
+                  <h1 className="text-white text-[32px] md:text-[42px] lg:text-[52px] leading-[1.1] font-black tracking-tight md:whitespace-nowrap px-12 md:px-0" 
                       style={{ 
                         textShadow: `
                           -2px -2px 0 #000,  
@@ -93,7 +93,7 @@ export default function Page() {
                       }}>
                     CONVIERTE TUS ANTOJOS
                   </h1>
-                  <h1 className="text-white text-[28px] md:text-[42px] lg:text-[52px] leading-[1.1] font-black tracking-tight md:whitespace-nowrap" 
+                  <h1 className="text-white text-[28px] md:text-[42px] lg:text-[52px] leading-[1.1] font-black tracking-tight md:whitespace-nowrap px-8 md:px-0" 
                       style={{ 
                         textShadow: `
                           -2px -2px 0 #000,  
@@ -106,7 +106,7 @@ export default function Page() {
                       }}>
                     EN UNA <span className="text-yellow-500">DELICIOSA</span>
                   </h1>
-                  <h1 className="text-yellow-500 text-[28px] md:text-[42px] lg:text-[52px] leading-[1.1] font-black tracking-tight md:whitespace-nowrap"
+                  <h1 className="text-yellow-500 text-[24px] md:text-[42px] lg:text-[52px] leading-[1.1] font-black tracking-tight md:whitespace-nowrap px-4 md:px-0"
                       style={{ 
                         textShadow: `
                           -2px -2px 0 #000,  
@@ -124,7 +124,7 @@ export default function Page() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5 }}
-                  className="text-gray-300 text-sm md:text-lg lg:text-base mb-6 md:mb-8 max-w-xl leading-relaxed px-6 md:px-0"
+                  className="text-gray-300 text-xs md:text-lg lg:text-base mb-6 md:mb-8 max-w-xl leading-relaxed px-2 md:px-0"
                 >
                   Nuestra hamburguesa artesanal está preparada<br className="hidden md:block"/>
                   con los mejores ingredientes<br className="hidden md:block"/>
