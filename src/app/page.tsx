@@ -145,7 +145,7 @@ export default function Page() {
                         boxShadow: "0 20px 30px -10px rgba(234, 179, 8, 0.4)"
                       }}
                       whileTap={{ scale: 0.95 }}
-                      className="relative bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500 text-black px-8 py-3 md:px-10 md:py-4 lg:px-8 lg:py-3 rounded-xl font-bold text-base md:text-lg lg:text-base shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 transition-all duration-300 group"
+                      className="relative bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500 text-black px-8 py-3 md:px-6 md:py-3 lg:px-8 lg:py-3 rounded-xl font-bold text-base md:text-sm lg:text-base shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 transition-all duration-300 group"
                     >
                       <span className="relative z-10 inline-flex items-center">
                         Ordenar Ahora
@@ -166,7 +166,7 @@ export default function Page() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="bg-transparent text-white border-2 border-white/30 px-6 py-3 md:px-8 md:py-4 lg:px-6 lg:py-3 rounded-xl font-bold text-base md:text-lg lg:text-base hover:bg-white/10 transition-colors"
+                    className="bg-transparent text-white border-2 border-white/30 px-6 py-3 md:px-6 md:py-3 lg:px-6 lg:py-3 rounded-xl font-bold text-base md:text-sm lg:text-base hover:bg-white/10 transition-colors"
                   >
                     Ver Menú
                   </motion.button>
@@ -184,7 +184,7 @@ export default function Page() {
                 type: "spring",
                 stiffness: 100
               }}
-              className="relative w-[85%] md:w-[45%] lg:absolute lg:top-[15%] lg:-translate-y-1/2 lg:right-0 lg:w-[45%] max-w-xl md:max-w-lg lg:max-w-2xl pt-24 md:pt-0 lg:pt-8"
+              className="relative w-[85%] md:w-[45%] lg:absolute lg:top-[15%] lg:-translate-y-1/2 lg:right-0 lg:w-[45%] max-w-xl md:max-w-lg lg:max-w-2xl pt-24 md:pt-16 lg:pt-8"
             >
               <div className="relative md:w-[100%]">
                 <div className="absolute inset-0 bg-gradient-radial from-[#FFE600] via-[#FFE600]/30 to-transparent opacity-60 blur-[50px] md:blur-[80px] lg:blur-[100px] rounded-full transform scale-100 md:scale-125 lg:scale-150"></div>
