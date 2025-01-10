@@ -6,6 +6,36 @@ import { motion } from 'framer-motion'
 import FAQ from '@/components/FAQ'
 import CTA from '@/components/CTA'
 
+const SmokeParticle = ({ delay = 0, position = 0 }) => {
+  // Random starting position within the container width
+  const xOffset = (Math.random() * 120 - 60) // Random value between -60 and 60
+  
+  return (
+    <motion.div
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{
+        scale: [0.3, 1.2, 1.5],
+        opacity: [0, 0.9, 0],
+        y: [0, -100],
+        x: [xOffset, xOffset + (Math.random() > 0.5 ? 20 : -20)],
+        rotate: [0, Math.random() > 0.5 ? 90 : -90]
+      }}
+      transition={{
+        duration: 2.5,
+        delay: Math.random() * 2, // Random delay between 0 and 2 seconds
+        repeat: Infinity,
+        repeatDelay: Math.random() * 0.5, // Random delay between repetitions
+        ease: "easeOut"
+      }}
+      className="absolute bottom-0 w-6 h-6 rounded-full blur-lg"
+      style={{
+        background: 'radial-gradient(circle at center, rgba(253, 224, 71, 0.7), rgba(253, 224, 71, 0.5), transparent)',
+        filter: 'blur(4px)'
+      }}
+    />
+  )
+}
+
 export default function Page() {
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault()
@@ -61,26 +91,26 @@ export default function Page() {
       
       {/* Hero Section */}
       <section id="hero" className="relative w-full flex justify-center min-h-screen">
-        <div className="w-[90%] max-w-7xl relative h-full pt-24 md:pt-[120px] lg:pt-[40px]">
-          <div className="flex flex-col-reverse md:flex-row items-center justify-between h-[calc(100vh-96px)] md:h-[calc(100vh-120px)] lg:h-[calc(100vh-80px)]">
+        <div className="w-[90%] max-w-7xl relative h-full pt-16 md:pt-[120px] lg:pt-[40px]">
+          <div className="flex flex-col-reverse md:flex-row items-center justify-between h-[calc(100vh-80px)] md:h-[calc(100vh-120px)] lg:h-[calc(100vh-80px)]">
             {/* Text Content */}
             <motion.div 
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="w-full md:w-[55%] lg:w-1/2 lg:max-w-xl pb-8 md:pb-0 pt-4 md:pt-0 lg:pt-8 text-center md:text-left md:pr-4"
+              className="w-full md:w-[55%] lg:w-1/2 lg:max-w-xl pb-4 md:pb-0 pt-2 md:pt-0 lg:pt-8 text-center md:text-left md:pr-4"
             >
               <div>
                 <motion.span
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="inline-block text-yellow-500 font-bold text-[10px] md:text-base lg:text-sm mb-2 tracking-wide"
+                  className="inline-block text-yellow-500 font-bold text-[10px] md:text-base lg:text-sm mb-1 md:mb-2 tracking-wide"
                 >
                   DESCUBRE EL SABOR
                 </motion.span>
-                <div className="mb-4 max-w-3xl px-0 md:px-0">
-                  <h1 className="text-white text-[32px] md:text-[42px] lg:text-[52px] leading-[1.1] font-black tracking-tight md:whitespace-nowrap px-12 md:px-0" 
+                <div className="mb-2 md:mb-4 max-w-3xl px-0 md:px-0">
+                  <h1 className="text-white text-[28px] md:text-[42px] lg:text-[52px] leading-[1.1] font-black tracking-tight md:whitespace-nowrap px-8 md:px-0" 
                       style={{ 
                         textShadow: `
                           -2px -2px 0 #000,  
@@ -93,7 +123,7 @@ export default function Page() {
                       }}>
                     CONVIERTE TUS ANTOJOS
                   </h1>
-                  <h1 className="text-white text-[28px] md:text-[42px] lg:text-[52px] leading-[1.1] font-black tracking-tight md:whitespace-nowrap px-8 md:px-0" 
+                  <h1 className="text-white text-[24px] md:text-[42px] lg:text-[52px] leading-[1.1] font-black tracking-tight md:whitespace-nowrap px-6 md:px-0" 
                       style={{ 
                         textShadow: `
                           -2px -2px 0 #000,  
@@ -106,7 +136,7 @@ export default function Page() {
                       }}>
                     EN UNA <span className="text-yellow-500">DELICIOSA</span>
                   </h1>
-                  <h1 className="text-yellow-500 text-[24px] md:text-[42px] lg:text-[52px] leading-[1.1] font-black tracking-tight md:whitespace-nowrap px-4 md:px-0"
+                  <h1 className="text-yellow-500 text-[22px] md:text-[42px] lg:text-[52px] leading-[1.1] font-black tracking-tight md:whitespace-nowrap px-4 md:px-0"
                       style={{ 
                         textShadow: `
                           -2px -2px 0 #000,  
@@ -124,49 +154,66 @@ export default function Page() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5 }}
-                  className="text-gray-300 text-xs md:text-lg lg:text-base mb-6 md:mb-8 max-w-xl leading-relaxed px-2 md:px-0"
+                  className="text-gray-300 text-[11px] md:text-lg lg:text-base mb-4 md:mb-8 max-w-xl leading-relaxed px-2 md:px-0"
                 >
                   Nuestra hamburguesa artesanal está preparada<br className="hidden md:block"/>
                   con los mejores ingredientes<br className="hidden md:block"/>
                   y con todo nuestro amor.
-                  <span className="block mt-2 text-yellow-500 font-semibold">¡Cada bocado es una experiencia única!</span>
+                  <span className="block mt-1 md:mt-2 text-yellow-500 font-semibold">¡Cada bocado es una experiencia única!</span>
                 </motion.p>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.7 }}
-                  className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start px-6 md:px-0"
+                  className="flex flex-col sm:flex-row gap-2 md:gap-4 justify-center items-center md:justify-start md:items-start px-4 md:px-0"
                 >
-                  <div className="relative inline-block">
+                  <div className="relative inline-block group">
                     {/* Button */}
-                    <motion.button
-                      whileHover={{ 
-                        scale: 1.05,
-                        boxShadow: "0 20px 30px -10px rgba(234, 179, 8, 0.4)"
-                      }}
-                      whileTap={{ scale: 0.95 }}
-                      className="relative bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500 text-black px-8 py-3 md:px-6 md:py-3 lg:px-8 lg:py-3 rounded-xl font-bold text-base md:text-sm lg:text-base shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 transition-all duration-300 group"
-                    >
-                      <span className="relative z-10 inline-flex items-center">
-                        Ordenar Ahora
-                        <motion.svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </motion.svg>
-                      </span>
-                      <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </motion.button>
+                    <div className="relative">
+                      {/* Smoke particles container - positioned relative to button */}
+                      <div className="absolute -inset-x-24 -top-40 h-40 flex items-end justify-center overflow-hidden">
+                        {[...Array(10)].map((_, i) => (
+                          <SmokeParticle key={i} delay={i * 0.2} position={i} />
+                        ))}
+                      </div>
+                      {/* Button glow effect */}
+                      <div className="absolute -inset-1 bg-yellow-500 rounded-xl opacity-60 group-hover:opacity-80 blur-lg transition duration-200"></div>
+                      <div className="absolute -inset-1 bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-500 rounded-xl opacity-40 group-hover:opacity-70 blur-xl transition duration-200 animate-pulse"></div>
+                      
+                      <motion.button
+                        whileHover={{ 
+                          scale: 1.05,
+                          boxShadow: "0 20px 30px -10px rgba(234, 179, 8, 0.4)"
+                        }}
+                        whileTap={{ scale: 0.95 }}
+                        className="relative bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500 text-black px-8 py-3 md:px-6 md:py-3 lg:px-8 lg:py-3 rounded-xl font-bold text-base md:text-sm lg:text-base shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 transition-all duration-300 min-w-[120px] overflow-hidden"
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute inset-0">
+                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(255,255,255,0.3),transparent_60%)] group-hover:opacity-100 opacity-0 transition-opacity duration-500"></div>
+                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,rgba(255,255,255,0.3),transparent_60%)] group-hover:opacity-100 opacity-0 transition-opacity duration-500 delay-100"></div>
+                          <div className="absolute inset-[-100%] bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_50%)] group-hover:opacity-100 opacity-0 transition-opacity duration-500 delay-200 animate-[spin_4s_linear_infinite]"></div>
+                        </div>
+                        <span className="relative z-10 inline-flex items-center whitespace-nowrap justify-center">
+                          Ordenar Ahora
+                          <motion.svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </motion.svg>
+                        </span>
+                      </motion.button>
+                    </div>
                   </div>
 
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="bg-transparent text-white border-2 border-white/30 px-6 py-3 md:px-6 md:py-3 lg:px-6 lg:py-3 rounded-xl font-bold text-base md:text-sm lg:text-base hover:bg-white/10 transition-colors"
+                    className="bg-transparent text-white border-2 border-white/30 px-6 py-2 md:px-6 md:py-3 lg:px-6 lg:py-3 rounded-xl font-bold text-sm md:text-sm lg:text-base hover:bg-white/10 transition-colors min-w-[120px]"
                   >
                     Ver Menú
                   </motion.button>
@@ -184,10 +231,10 @@ export default function Page() {
                 type: "spring",
                 stiffness: 100
               }}
-              className="relative w-[85%] md:w-[45%] lg:absolute lg:top-[27%] lg:-translate-y-1/2 lg:right-0 lg:w-[45%] max-w-xl md:max-w-lg lg:max-w-3xl pt-24 md:pt-16 lg:pt-8"
+              className="relative w-[65%] md:w-[40%] lg:absolute lg:top-[15%] lg:-translate-y-1/2 lg:right-0 lg:w-[40%] max-w-xl md:max-w-lg lg:max-w-2xl pt-12 md:pt-16 lg:pt-8"
             >
               <div className="relative md:w-[100%]">
-                <div className="absolute inset-0 bg-gradient-radial from-[#FFE600] via-[#FFE600]/30 to-transparent opacity-60 blur-[50px] md:blur-[80px] lg:blur-[100px] rounded-full transform scale-100 md:scale-125 lg:scale-150"></div>
+                <div className="absolute inset-0 bg-gradient-radial from-[#FFE600] via-[#FFE600]/30 to-transparent opacity-60 blur-[30px] md:blur-[80px] lg:blur-[100px] rounded-full transform scale-100 md:scale-125 lg:scale-150"></div>
                 <Image
                   src="/burger.png"
                   alt="Delicious Hamburger"
