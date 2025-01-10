@@ -7,7 +7,8 @@ import FAQ from '@/components/FAQ'
 import CTA from '@/components/CTA'
 
 const SmokeParticle = ({ delay = 0, position = 0 }) => {
-  const xOffset = position * 15 - 60 // Even smaller spread for smaller particles
+  // Random starting position within the container width
+  const xOffset = (Math.random() * 120 - 60) // Random value between -60 and 60
   
   return (
     <motion.div
@@ -21,9 +22,9 @@ const SmokeParticle = ({ delay = 0, position = 0 }) => {
       }}
       transition={{
         duration: 2.5,
-        delay,
+        delay: Math.random() * 2, // Random delay between 0 and 2 seconds
         repeat: Infinity,
-        repeatDelay: Math.random() * 0.2,
+        repeatDelay: Math.random() * 0.5, // Random delay between repetitions
         ease: "easeOut"
       }}
       className="absolute bottom-0 w-6 h-6 rounded-full blur-lg"
