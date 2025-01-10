@@ -231,7 +231,7 @@ export default function Page() {
                 type: "spring",
                 stiffness: 100
               }}
-              className="relative w-[75%] md:w-[45%] lg:absolute lg:top-[15%] lg:-translate-y-1/2 lg:right-0 lg:w-[45%] max-w-xl md:max-w-lg lg:max-w-2xl pt-12 md:pt-16 lg:pt-8"
+              className="relative w-[65%] md:w-[40%] lg:absolute lg:top-[15%] lg:-translate-y-1/2 lg:right-0 lg:w-[40%] max-w-xl md:max-w-lg lg:max-w-2xl pt-12 md:pt-16 lg:pt-8"
             >
               <div className="relative md:w-[100%]">
                 <div className="absolute inset-0 bg-gradient-radial from-[#FFE600] via-[#FFE600]/30 to-transparent opacity-60 blur-[30px] md:blur-[80px] lg:blur-[100px] rounded-full transform scale-100 md:scale-125 lg:scale-150"></div>
