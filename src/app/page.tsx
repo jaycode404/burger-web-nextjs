@@ -7,16 +7,16 @@ import FAQ from '@/components/FAQ'
 import CTA from '@/components/CTA'
 
 const SmokeParticle = ({ delay = 0, position = 0 }) => {
-  const xOffset = position * 30 - 120 // Narrower distribution to match button width
+  const xOffset = position * 15 - 60 // Even smaller spread for smaller particles
   
   return (
     <motion.div
       initial={{ scale: 0, opacity: 0 }}
       animate={{
-        scale: [0.5, 2.5, 3.5],
+        scale: [0.3, 1.2, 1.5],
         opacity: [0, 0.9, 0],
-        y: [0, -120],
-        x: [xOffset, xOffset + (Math.random() > 0.5 ? 40 : -40)],
+        y: [0, -100],
+        x: [xOffset, xOffset + (Math.random() > 0.5 ? 20 : -20)],
         rotate: [0, Math.random() > 0.5 ? 90 : -90]
       }}
       transition={{
@@ -26,10 +26,10 @@ const SmokeParticle = ({ delay = 0, position = 0 }) => {
         repeatDelay: Math.random() * 0.2,
         ease: "easeOut"
       }}
-      className="absolute bottom-0 w-12 h-12 rounded-full blur-lg"
+      className="absolute bottom-0 w-6 h-6 rounded-full blur-lg"
       style={{
         background: 'radial-gradient(circle at center, rgba(253, 224, 71, 0.7), rgba(253, 224, 71, 0.5), transparent)',
-        filter: 'blur(6px)'
+        filter: 'blur(4px)'
       }}
     />
   )
@@ -170,7 +170,7 @@ export default function Page() {
                     {/* Button */}
                     <div className="relative">
                       {/* Smoke particles container - positioned relative to button */}
-                      <div className="absolute -inset-x-20 -top-40 h-40 flex items-end justify-center overflow-hidden">
+                      <div className="absolute -inset-x-24 -top-40 h-40 flex items-end justify-center overflow-hidden">
                         {[...Array(10)].map((_, i) => (
                           <SmokeParticle key={i} delay={i * 0.2} position={i} />
                         ))}
